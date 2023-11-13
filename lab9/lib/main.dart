@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'card_screen.dart'; // Asegúrate de crear este archivo
+import 'card_screen.dart';
+import 'movie_card.dart'; 
 
 void main() {
   runApp(MyApp());
@@ -8,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( // Aquí se corrigió el carácter erróneo
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Cards Demo',
       theme: ThemeData(
@@ -32,14 +33,28 @@ class HomeScreen extends StatelessWidget {
         title: Text('Card Widget'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Ir a Card Screen'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => CardScreen()),
-            );
-          },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ElevatedButton(
+              child: Text('Ir a Card Screen'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CardScreen()),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Ir a Movie Card'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MovieCard()),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
